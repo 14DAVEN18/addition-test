@@ -1,0 +1,38 @@
+<safe-area-provider>
+    <safe-area-view class="screen">
+        <view class="body">
+            <text class="title"> Addition test </text>
+
+            <text class="label"> First number </text>
+            <text-input class="input" keyboardType="numeric" [value]="number1()" (changeText)="number1.set($event)"/>
+
+            <text class="label"> Second number </text>
+            <text-input class="input" keyboardType="numeric" [value]="number2()" (changeText)="number2.set($event)"/>
+
+            <view class="operations-container">
+                <pressable accessibilityRole="button" class="button" (press)="add()">
+                    <text class="button-label"> Add </text>
+                </pressable>
+
+                <pressable accessibilityRole="button" class="button" (press)="subtract()">
+                    <text class="button-label"> Subtract </text>
+                </pressable>
+
+                <pressable accessibilityRole="button" class="button" (press)="multiply()">
+                    <text class="button-label"> Multiply </text>
+                </pressable>
+
+                <pressable accessibilityRole="button" class="button" (press)="divide()">
+                    <text class="button-label"> Divide </text>
+                </pressable>
+            </view>
+
+            @if (toastMessage()) {
+                <view class="toast">
+                    <text class="toast-text"> {{ toastMessage() }} </text>
+                </view>
+            }
+            <text class="result"> Result: {{ result() }} </text>
+        </view>
+    </safe-area-view>
+</safe-area-provider>
